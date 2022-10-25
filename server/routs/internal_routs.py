@@ -19,7 +19,7 @@ class ClientRequest(BaseModel):
 @router.get('/resources/{resource}')
 async def get(resource: str):
     if resource == 'weathers' or resource == 'locations':
-        res = dbQueries.get_options(resource)
+        res = db_queries.get_options(resource)
     else:
         res = "invalid resource type"
 
@@ -28,7 +28,7 @@ async def get(resource: str):
 @router.get('/getdate/')
 async def get(weather: str, location: str):
     if weather != '' and location != '':
-        res = dbQueries.get_date(weather, location)
+        res = db_queries.get_date(weather, location)
     else:
         res = "no query parametrs given"
 
@@ -39,7 +39,7 @@ async def get(weather: str, location: str):
 async def get(item_id: int):
     global caching_metadata
     print("get!")
-    res = dbQueries.get_number(item_id)
+    res = db_queries.get_number(item_id)
     print(res)
     return {"response": caching_metadata[item_id]}
 
@@ -49,7 +49,7 @@ async def post(request: Request):
     response = await request.json()   
     key = list(response.keys())[0]     
     val = response[key]
-    dbQueries.create_number(key, val)
+    db_queries.create_number(key, val)
 
     print(response)
     return response
