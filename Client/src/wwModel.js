@@ -1,6 +1,3 @@
-/*
-  Author: Nir Nicole
-*/
 const recipeModel = function () {
 	let metaInstance
 	let cacheData

@@ -1,6 +1,6 @@
 import json
 from .api import Api
-from Database import dbQueries
+from database import db_queries
 
 class MyOutsourceApi(Api):
 

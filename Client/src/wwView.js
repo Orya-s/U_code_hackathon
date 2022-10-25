@@ -1,6 +1,3 @@
-/*
-  Author: Nir Nicole
-*/
 const recipeRender = function () {
 	const renderComponent = function (hbTemplate, elementToRender, metaData) {
 		const source = $(hbTemplate).html()

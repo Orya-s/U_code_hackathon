@@ -1,4 +1,4 @@
-from Database.dbManager import connection
+from database.db_manager import connection
 
 def get_table(val):
     try:

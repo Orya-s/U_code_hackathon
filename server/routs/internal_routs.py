@@ -1,7 +1,7 @@
 from fastapi import APIRouter,Request
 from pydantic import BaseModel
-from Routes import errorHandling
-from Database import dbQueries
+from routs import error_handling
+from database import db_queries
 
 # restfull inner api routs for farther application features if needed
 # do not check for now,

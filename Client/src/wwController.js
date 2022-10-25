@@ -1,7 +1,3 @@
-/*
-  Author: Nir Nicole
-*/
-
 const model = recipeModel()
 const renderer = recipeRender()
 
