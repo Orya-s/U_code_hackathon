@@ -1,12 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<link rel="shortcut icon" href="#" />
+		<title>Recepies Project</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.js"
+			crossorigin="anonymous"
+		></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="styles.css"
+		/>
+		<script id="results-template" type="text/x-handlebars-template">
+			{{#each results}}
+				<div id="card{{this.id}}" class="item">
+					<div class="img" id={{this.id}} data-stats="false"></div>
+					<div class="title">
+						<ul>
+							<h1>
+							{{this.title}}
+						</h1>
+					</ul>
+					</div>
+					<div class="ings">
+						<ul>
+						<h2>ingredients:</h2>
+					</ul>
+							<ul>
+								{{#each this.ingredients}}
+									<h3>{{this}}</h2>
+								{{/each}}
+							</ul>
+					</div>
+				</div>
+			{{/each}}
+		</script>
+
+		<script id="imgs-template" type="text/x-handlebars-template">
+			<img
+				src="{{this.thumbnail}}"
+				onerror="this.src='https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png';"
+				alt="not found"
+			/>
+		</script>
+	</head>
+	<body>
+		<div class="header">header</div>
+
+		<div class="body">
+			body
+			<div id="results"></div>
+		</div>
+		<div class="footer">footer</div>
+
+		<script src="./src/Apis/ajaxCall.js"></script>
+		<script src="./src/Apis/api.js"></script>
+		<script src="./src/Apis/metaDataAPI.js"></script>
+		<script src="./src/view.js"></script>
+		<script src="./src/model.js"></script>
+		<script src="./src/controller.js"></script>
+	</body>
 </html>
