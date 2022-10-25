@@ -14,6 +14,27 @@ caching_metadata = {1: "One", 2: "Two"}
 class ClientRequest(BaseModel):
     data: object
 
+
+
+@router.get('/resources/{resource}')
+async def get(resource: str):
+    if resource == 'weathers' or resource == 'locations':
+        res = dbQueries.get_options(resource)
+    else:
+        res = "invalid resource type"
+
+    return {"response": res}
+
+@router.get('/getdate/')
+async def get(weather: str, location: str):
+    if weather != '' and location != '':
+        res = dbQueries.get_date(weather, location)
+    else:
+        res = "no query parametrs given"
+
+    return {"response": res}
+
+
 @router.get('/insource/{item_id}')
 async def get(item_id: int):
     global caching_metadata
