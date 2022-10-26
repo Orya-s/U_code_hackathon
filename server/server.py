@@ -5,13 +5,13 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import uvicorn
-from routs import external_routs
-from routs import internal_routs
+from routes import external_routes
+from routes import internal_routes
 
 app = FastAPI()
 
-app.include_router(external_routs.router)
-app.include_router(internal_routs.router)
+app.include_router(external_routes.router)
+app.include_router(internal_routes.router)
 
 app.mount('/', StaticFiles(directory='..\client', html = True), name='client')
 
