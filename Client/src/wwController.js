@@ -1,5 +1,5 @@
 const model = recipeModel()
-const renderer = recipeRender()
+const renderer = pageRender()
 
 const generateData = function (attempts, user_input, gluten, dairy) {
 	model
