@@ -1,21 +1,31 @@
-from db_manager import connection
+from database.connection_manager import connection
 
-def get_options():
+def weather_options():
     try:
         with connection.cursor() as cursor:
             weather_query = "SELECT * FROM weather"
             cursor.execute(weather_query)
             weather_result = cursor.fetchall()
-            location_query = "SELECT * FROM location"
-            cursor.execute(location_query)
-            location_result = cursor.fetchall()
-            result = {"weathers": [ [e["weathers"], e["tumbnail"]] for e in weather_result], "locations": [e["locations"]for e in location_result]}
+            result = {"weather": [e["weathers"]for e in weather_result]}
             return result
     except TypeError as e:
         print(e)
-        return {"weathers": "Error: couldnt resolve", "locations":  "Error: couldnt resolve"}
+        return {"weather": "Error: couldnt resolve"}
 
-def get_date(weather, location):
+def location_options():
+    try:
+        with connection.cursor() as cursor:
+            location_query = "SELECT * FROM location"
+            cursor.execute(location_query)
+            location_result = cursor.fetchall()
+            result = {"location": [e["locations"]for e in location_result]}
+            return result
+    except TypeError as e:
+        print(e)
+        return {"location":  "Error: couldnt resolve"}
+
+
+def vacation(weather, location):
     try:
         with connection.cursor() as cursor:
             date_query = f'SELECT date FROM data WHERE weathers = "{weather}" AND locations = "{location}";'
