@@ -58,9 +58,10 @@ def init_db():
     create_table(connection, 'location', 'locations VARCHAR(20)')
     create_table(connection, 'weather', 'weathers VARCHAR(20), tumbnail VARCHAR(2000)')
     create_table(connection, 'data', 'weathers VARCHAR(20), locations VARCHAR(20), date DATE')
-    insert_data(connection, 'data', pull_data("C:\\Users\\Rent\\Desktop\\u_code\\U_code_hackathon\\server\\database\\data.csv"))
-    insert_data(connection, 'location', pull_data("C:\\Users\\Rent\\Desktop\\u_code\\U_code_hackathon\\server\\database\\location.csv"))
-    insert_data(connection, 'weather', pull_data("C:\\Users\\Rent\\Desktop\\u_code\\U_code_hackathon\\server\\database\\weather.csv"))
+
+    insert_data(connection, 'data', pull_data("C:\\Users\\Rent\\Desktop\\hackaton\\U_code_hackathon\\data-init\\data.csv"))
+    insert_data(connection, 'location', pull_data("C:\\Users\\Rent\\Desktop\\hackaton\\U_code_hackathon\\data-init\\location.csv"))
+    insert_data(connection, 'weather', pull_data("C:\\Users\\Rent\\Desktop\\hackaton\\U_code_hackathon\\data-init\\weather.csv"))
 
 
 

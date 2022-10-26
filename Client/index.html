@@ -12,7 +12,10 @@
 			src="https://code.jquery.com/jquery-3.3.1.js"
 			crossorigin="anonymous"
 		></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+		/>
 		<link
 			rel="stylesheet"
 			type="text/css"
@@ -23,15 +26,13 @@
 		<script id="scroll-template" type="text/x-handlebars-template">
 			{{#each}}
 				<option value={{this}}></option>
-			{{/each}}	
+			{{/each}}
 		</script>
-		
+
 		<script id="results-template" type="text/x-handlebars-template">
 			<h1>{{this}}</h1>
 		</script>
-
 	</head>
-
 
 	<body>
 		<div class="header">
@@ -39,22 +40,27 @@
 		</div>
 
 		<div class="body">
-			
 			<div class="text-input">
-				<input id="weather-input" class="filter" list="weather" placeholder="weather">
+				<input
+					id="weather-input"
+					class="filter"
+					list="weather"
+					placeholder="weather"
+				/>
 				<span class="math" id="plus">&#43;</span>
-				<input id="location-input" class="filter" list="location" placeholder="location">
+				<input
+					id="location-input"
+					class="filter"
+					list="location"
+					placeholder="location"
+				/>
 				<span class="math" id="equals">&#61;</span>
 			</div>
-			<div id="results">
-			</div>
+			<div id="results"></div>
 
+			<datalist id="scroll-weather"> </datalist>
 
-			<datalist id="scroll-weather">
-			</datalist>
-
-			<datalist id="scroll-location">
-			</datalist>
+			<datalist id="scroll-location"> </datalist>
 		</div>
 
 		<div class="footer">
@@ -62,13 +68,11 @@
 			<!-- <i class="fa-solid fa-trademark"></i> -->
 		</div>
 
-
-
 		<script src="./src/Apis/ajaxCall.js"></script>
 		<script src="./src/Apis/api.js"></script>
 		<script src="./src/Apis/metaDataAPI.js"></script>
-		<script src="./src/view.js"></script>
-		<script src="./src/vacation.js"></script>
+		<script src="./src/render.js"></script>
+		<script src="./src/vacations.js"></script>
 		<script src="./src/controller.js"></script>
 	</body>
 </html>
