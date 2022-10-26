@@ -1,4 +1,5 @@
 import pymysql
+import pandas as pd
 
 def create_database(db_name):
     try:
@@ -14,15 +15,34 @@ def create_database(db_name):
         print(e)
 
 def create_table(connection, table_name, fields):
-
     try:
         query = f'CREATE TABLE {table_name} ({fields});'
-        print(query)
         connection.cursor().execute(query)
         connection.commit()
         print(f"table name: {table_name} created successfully with the fields : {fields}")
     except TypeError as e:
         print(e)
+
+def insert_data(connection, table_name, entries_list):
+    try:
+        for entry in entries_list:
+            values = ""
+            for e in entry:
+                values += f'"{e}",'
+            values = values[:-1]
+            print(values)
+            query = f'INSERT INTO {table_name} VALUES ({values});'
+            connection.cursor().execute(query)
+            connection.commit()
+    except TypeError as e:
+        print(e)
+
+
+def pull_data(csv_path):	
+	df = pd.read_csv(csv_path, sep=',')
+	print(df)
+	tuples = [tuple(x) for x in df.values]
+	return tuples
 
 
 def init_db():
@@ -35,48 +55,14 @@ def init_db():
     charset="utf8",
     cursorclass=pymysql.cursors.DictCursor
     )
-    create_table(connection, 'location', 'location VARCHAR(20)')
-    create_table(connection, 'data', 'weather VARCHAR(20), date DATE, location VARCHAR(20)')
-    create_table(connection, 'weather', 'weather VARCHAR(20), tumbnail VARCHAR(2000)')
+    create_table(connection, 'location', 'locations VARCHAR(20)')
+    create_table(connection, 'weather', 'weathers VARCHAR(20), tumbnail VARCHAR(2000)')
+    create_table(connection, 'data', 'weathers VARCHAR(20), locations VARCHAR(20), date DATE')
+    insert_data(connection, 'data', pull_data("C:\\Users\\Rent\\Desktop\\u_code\\U_code_hackathon\\server\\database\\data.csv"))
+    insert_data(connection, 'location', pull_data("C:\\Users\\Rent\\Desktop\\u_code\\U_code_hackathon\\server\\database\\location.csv"))
+    insert_data(connection, 'weather', pull_data("C:\\Users\\Rent\\Desktop\\u_code\\U_code_hackathon\\server\\database\\weather.csv"))
+
+
 
 init_db()
  
-# #add ingridients:
-# try:
-#     initial_connection = pymysql.connect(
-#         host="localhost",
-#         user="root",
-#         password="",
-#         db="recipes_app",
-#         charset="utf8",
-#         cursorclass=pymysql.cursors.DictCursor
-#     )
-#     with initial_connection.cursor() as cursor:
-#         print("inserting values...")
-#         dairy_ingredients = ["Cream","Cheese","Milk","Butter","Creme","Ricotta","Mozzarella","Custard","Cream Cheese"]
-#         gluten_ingredients = ["Flour","Bread","spaghetti","Biscuits","Beer"]
-#         for dairy in dairy_ingredients:
-#             cursor.execute(f"INSERT IGNORE INTO dairy(dairy_ingredients) values('{dairy}')")
-#             initial_connection.commit()
-
-#         get_number = f"SELECT * FROM dairy"
-#         print(get_number)
-#         cursor.execute(get_number)
-#         result = cursor.fetchall()
-#         print(result)
-
-#         for gluten in gluten_ingredients:
-#             cursor.execute(f"INSERT IGNORE INTO gluten(gluten_ingredients) values('{gluten}')")   
-#             initial_connection.commit()
-
-#         get_number = f"SELECT * FROM gluten"
-#         print(get_number)
-#         cursor.execute(get_number)
-#         result = cursor.fetchall()
-#         print(result)    
-            
-#         print("Done!")    
-# except Exception: 
-#     print(Exception.args[0])
-#     print("coudlnt insert values!")
-

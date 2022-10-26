@@ -15,14 +15,9 @@ class ClientRequest(BaseModel):
     data: object
 
 
-
-@router.get('/resources/{resource}')
-async def get(resource: str):
-    if resource == 'weathers' or resource == 'locations':
-        res = db_queries.get_options(resource)
-    else:
-        res = "invalid resource type"
-
+@router.get('/resources/')
+async def get():
+    res = db_queries.get_options()
     return {"response": res}
 
 @router.get('/getdate/')
