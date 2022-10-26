@@ -4,60 +4,65 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<link rel="shortcut icon" href="#" />
-		<title>Recepies Project</title>
+		<link href="./src/favicon.ico" rel="icon" type="image/x-icon" />
+		<title>Wonder Weather</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.js"
 			crossorigin="anonymous"
 		></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
 		<link
 			rel="stylesheet"
 			type="text/css"
 			media="screen"
 			href="styles.css"
 		/>
+
+		<script id="scroll-template" type="text/x-handlebars-template">
+			{{#each}}
+				<option value={{this}}></option>
+			{{/each}}	
+		</script>
+		
 		<script id="results-template" type="text/x-handlebars-template">
-			{{#each results}}
-				<div id="card{{this.id}}" class="item">
-					<div class="img" id={{this.id}} data-stats="false"></div>
-					<div class="title">
-						<ul>
-							<h1>
-							{{this.title}}
-						</h1>
-					</ul>
-					</div>
-					<div class="ings">
-						<ul>
-						<h2>ingredients:</h2>
-					</ul>
-							<ul>
-								{{#each this.ingredients}}
-									<h3>{{this}}</h2>
-								{{/each}}
-							</ul>
-					</div>
-				</div>
-			{{/each}}
+			<h1>{{this}}</h1>
 		</script>
 
-		<script id="imgs-template" type="text/x-handlebars-template">
-			<img
-				src="{{this.thumbnail}}"
-				onerror="this.src='https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png';"
-				alt="not found"
-			/>
-		</script>
 	</head>
+
+
 	<body>
-		<div class="header">header</div>
+		<div class="header">
+			<h1 id="title">Wonder Weather</h1>
+		</div>
 
 		<div class="body">
-			body
-			<div id="results"></div>
+			
+			<div class="text-input">
+				<input class="weather-filter filter" list="weather" placeholder="weather">
+				<span class="math" id="plus">&#43;</span>
+				<input class="location-filter filter" list="location" placeholder="location">
+				<span class="math" id="equals">&#61;</span>
+			</div>
+			<div id="results">
+			</div>
+
+
+			<datalist id="scroll-weather">
+			</datalist>
+
+			<datalist id="scroll-location">
+			</datalist>
 		</div>
-		<div class="footer">footer</div>
+
+		<div class="footer">
+			<h2 class="logo">Cookies inc.</h2>
+			<!-- <i class="fa-solid fa-trademark"></i> -->
+		</div>
+
+
 
 		<script src="./src/Apis/ajaxCall.js"></script>
 		<script src="./src/Apis/api.js"></script>
