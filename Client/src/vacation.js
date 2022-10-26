@@ -1,4 +1,4 @@
-const recipeModel = function () {
+const vacation = function () {
 	let metaInstance
 	let cacheData
 
@@ -10,8 +10,8 @@ const recipeModel = function () {
 		metaInstance = new MetaDataApi()
 	}
 
-	async function getData(userInput, gluten, dairy) {
-		let promise = metaInstance.getData(userInput, gluten, dairy)
+	async function fetchVacation(weather, location) {
+		let promise = metaInstance.getData(weather, location)
 		return await Promise.all([promise]).then(function (results) {
 			cacheData = results[0]
 			return results[0]
@@ -36,7 +36,7 @@ const recipeModel = function () {
 
 	return {
 		getCache,
-		getData,
+		fetchVacation,
 		initData,
 		addData,
 		deleteData,

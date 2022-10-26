@@ -1,6 +1,4 @@
-
-const pageRender = function () {
-
+const view = function () {
 	const renderComponent = function (hbTemplate, elementToRender, metaData) {
 		const source = $(hbTemplate).html()
 		const template = Handlebars.compile(source)
@@ -10,12 +8,21 @@ const pageRender = function () {
 	}
 
 	const renderResults = function (res) {
-		renderComponent("#results-template", "#results", res)
+		// renderComponent("#results-template", "#results", res)
+		console.log(res)
 	}
 
 	const appendScrollOptions = function (options) {
-		renderComponent("#scroll-template", "#scroll-weather", options["weather"])
-		renderComponent("#scroll-template", "#scroll-location", options["location"])
+		renderComponent(
+			"#scroll-template",
+			"#scroll-weather",
+			options["weather"]
+		)
+		renderComponent(
+			"#scroll-template",
+			"#scroll-location",
+			options["location"]
+		)
 	}
 
 	return {

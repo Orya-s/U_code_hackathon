@@ -1,26 +1,23 @@
-const model = recipeModel()
-const renderer = pageRender()
+const model = vacation()
+const renderer = view()
 
-const generateData = function (attempts, user_input, gluten, dairy) {
+const generateData = function (attempts, weather, location) {
 	model
-		.getData(user_input, gluten, dairy)
+		.fetchVacation(weather, location)
 		.then((res) => renderer.renderResults(res))
 		.catch((error) => errorHandeling(error, attempts, generateData))
 }
 
-$("#submit").on("click", function () {
-	let user_input = $("#user-input").val()
-	let gluten = $("#gluten-active").is(":checked")
-	let dairy = $("#dairy-active").is(":checked")
-	if (user_input != "") {
-		model.initData()
-		generateData(5, user_input, gluten, dairy)
-	} else console.warn("no input")
-})
-
 $("body").bind("keypress", function (event) {
 	if (event.keyCode === 13) {
-		$("#submit").trigger("click")
+		// let weather = $("#weather-input").val()
+		// let location = $("#location-input").val()
+		let weather = "hot"
+		let location = "London"
+		if (weather != "" && location != "") {
+			model.initData()
+			generateData(5, weather, location)
+		} else console.warn("no input")
 	}
 })
 

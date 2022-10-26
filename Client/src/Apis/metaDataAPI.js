@@ -1,15 +1,15 @@
 class MetaDataApi extends Api {
 	constructor(resources = "", apiInterface = new AjaxCall()) {
-		super(apiInterface, `http://localhost:8000/outsource/`)
+		super(apiInterface, `http://localhost:8000/`)
 		this.resources = resources
 	}
 
-	async getData(itemId = "cheese", gluten = false, dairy = true) {
+	async getData(weather, location) {
 		this.data = {
-			"gluten": gluten,
-			"dairy": dairy,
+			"weather": weather,
+			"location": location,
 		}
-		this.resources = itemId
+		this.resources = "vacation"
 		return await this.callApi()
 	}
 
