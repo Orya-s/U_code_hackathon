@@ -16,10 +16,24 @@ body {
   grid-area: h;
 }
 
+<<<<<<< HEAD
+=======
+.body {
+  grid-area: b;
+}
+
+#results {
+  grid-area: b;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 500px);
+  grid-auto-rows: 500px;
+  gap: 6px;
+}
+>>>>>>> master
 
 
-#nav-options{
-    grid-area: n;
+#nav-options {
+  grid-area: n;
 }
 
 #title {
@@ -131,4 +145,30 @@ input:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-font-smoothing: antialiased;
+<<<<<<< HEAD
 } */
+=======
+}
+
+
+#get-hotels {
+  position: absolute;
+  bottom: 90px;
+  font-size: 1.25em;
+}
+
+#my-picks {
+  position: absolute;
+  bottom: 90px;
+  right: 1em;
+  font-size: 1.25em;
+}
+
+
+.return-button {
+  position: absolute;
+  bottom: 90px;
+  right: 1em;
+  font-size: 1.25em;
+}
+>>>>>>> master
