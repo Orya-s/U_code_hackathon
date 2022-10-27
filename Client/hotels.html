@@ -32,7 +32,13 @@
 		<script id="results-template" type="text/x-handlebars-template">
 			{{#each response}}
 				<div id="card{{this.id}}" class="item">
-					<div class="img" id={{this.id}} data-stats="false"></div>
+					<div
+						class="img"
+						class={{chooseClass this.dreamTeam}}
+						data-id={{this.id}}
+						data-dt={{this.dreamTeam}}
+					></div>
+					<div class="img" id={{this.id}}></div>
 					<div class="title">{{this.name}}</div>
 					<button class="dreamteam-card-button">{{dreamOptions
 							this.dreamTeam

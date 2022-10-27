@@ -12,7 +12,9 @@ const recipeRender = function () {
 		appandImgs(res)
 	}
 	const appandImgs = function (results) {
+		console.log("img")
 		for (item of results.response) {
+			console.log(item)
 			let elementToRender = `#${item.id}`
 			renderComponent("#imgs-template", elementToRender, item)
 		}

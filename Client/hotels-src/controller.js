@@ -1,15 +1,19 @@
 const model = recipeModel()
 const renderer = recipeRender()
 
+Handlebars.registerHelper("chooseClass", (isDT) => (isDT ? "dt-item" : "item"))
 Handlebars.registerHelper("dreamOptions", (isDT) =>
-	isDT ? "Remove from Dream Team" : "Add to Dream Team"
+	isDT ? "Remove from top picks" : "Add to top picks"
 )
 
 const generateData = function (attempts, location, date) {
 	model.initData()
 	model
 		.getData(location, date)
-		.then((res) => renderer.renderResults(res))
+		.then((res) => {
+			console.log(res)
+			renderer.renderResults(res)
+		})
 		.catch((error) => errorHandeling(error, attempts, generateData))
 }
 

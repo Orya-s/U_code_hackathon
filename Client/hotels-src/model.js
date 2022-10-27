@@ -19,7 +19,7 @@ const recipeModel = function () {
 		let promise = metaInstance.getData(location, date)
 		return await Promise.all([promise]).then(function (results) {
 			cacheData = results[0]
-			return results[0]
+			return cacheData
 		})
 	}
 

@@ -11,15 +11,34 @@
 .item {
     border: 2px solid rgb(170, 125, 255);
     background: rgb(200, 255, 207);
-    color: rgb(111, 0, 81);
     padding: 10px;
     border-radius: 8px;
     align-items: center;
     justify-content: center;
+    color: black;
+    position: relative;
+    -webkit-text-fill-color: black;
   }
+
+  
+.item > .dreamteam-card-button {
+  background-color: rgb(114, 20, 182);
+  margin-left: 30%;
+  position: absolute;
+  bottom: 5%;
+  border: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  -webkit-text-fill-color:black;
+}
+
+.dt-item > .dreamteam-card-button {
+background-color: red;
+}
   
 .title{
     text-align: center;
+    color: black;
   }
   
 .ings{

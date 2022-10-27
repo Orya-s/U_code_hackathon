@@ -9,19 +9,13 @@ body {
   "b b b" 
   "n n n" 
   "f f f" ;
+
 }
 
 .header {
   grid-area: h;
 }
 
-#results {
-  grid-area: b;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 500px);
-  grid-auto-rows: 500px;
-  gap: 6px;
-}
 
 
 #nav-options{
@@ -33,7 +27,6 @@ body {
   background-repeat: repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* margin-top: 200px; */
   font-size: 4em;
   text-align: center;
   text-transform: uppercase;
@@ -126,17 +119,16 @@ input:focus {
 }
 
 
-
+/* 
 #results {
   display: inline-block;
   font-family: 'Steelfish Rg', 'helvetica neue',
   helvetica, arial, sans-serif;
   font-size: 1.4em;
   margin-right: 0;
-  
   background-image: url(./src/title_back.jpg);
   background-repeat: repeat;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-font-smoothing: antialiased;
-}
+} */
