@@ -13,6 +13,23 @@ const generateData = function (attempts, location, date) {
 		.catch((error) => errorHandeling(error, attempts, generateData))
 }
 
+$("#results").on("click", ".dreamteam-card-button", function () {
+	let isDreamTeam = $(this).parent("div").attr("data-dt")
+	let player_id = $(this).parent("div").attr("data-id")
+	let player_data = model.getCache().find((p) => p.id == player_id)
+	model.initDreamTeam()
+
+	if (String(isDreamTeam).toLowerCase() == "true") {
+		model
+			.deletePlayer(player_id)
+			.then((res) => renderer.renderCard(player_id, res.metaData))
+	} else {
+		model
+			.addPlayer(player_data)
+			.then((res) => renderer.renderCard(player_id, res.metaData))
+	}
+})
+
 let errorHandeling = function (error, attempts, callback) {
 	console.warn(error)
 	if (attempts-- > 0) {
