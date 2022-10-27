@@ -16,20 +16,6 @@ body {
   grid-area: h;
 }
 
-<<<<<<< HEAD
-=======
-.body {
-  grid-area: b;
-}
-
-#results {
-  grid-area: b;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 500px);
-  grid-auto-rows: 500px;
-  gap: 6px;
-}
->>>>>>> master
 
 
 #nav-options {
@@ -145,11 +131,8 @@ input:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-font-smoothing: antialiased;
-<<<<<<< HEAD
-} */
-=======
 }
-
+*/
 
 #get-hotels {
   position: absolute;
@@ -171,4 +154,3 @@ input:focus {
   right: 1em;
   font-size: 1.25em;
 }
->>>>>>> master
