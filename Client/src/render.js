@@ -8,20 +8,18 @@ const view = function () {
 	}
 
 	const renderResults = function (res) {
-		// renderComponent("#results-template", "#results", res)
-		console.log(res)
+		renderComponent("#results-template", "#results", res.response)
 	}
 
 	const appendScrollOptions = function (options) {
+		renderComponent("#scroll-template", "#scroll-weather", options.response)
+	}
+
+	const appendLoactionOptions = function (options) {
 		renderComponent(
-			"#scroll-template",
-			"#scroll-weather",
-			options["weather"]
-		)
-		renderComponent(
-			"#scroll-template",
+			"#location-template",
 			"#scroll-location",
-			options["location"]
+			options.response
 		)
 	}
 
@@ -29,5 +27,6 @@ const view = function () {
 		renderResults,
 		renderComponent,
 		appendScrollOptions,
+		appendLoactionOptions,
 	}
 }

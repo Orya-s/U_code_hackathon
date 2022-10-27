@@ -23,59 +23,36 @@
 			href="styles.css"
 		/>
 
-		<script id="scroll-template" type="text/x-handlebars-template">
-			{{#each weather}}
-				<option value={{this}}></option>
-			{{/each}}
-		</script>
-		<script id="location-template" type="text/x-handlebars-template">
-			{{#each location}}
-				<option value={{this}}></option>
+		<script id="results-template" type="text/x-handlebars-template">
+			{{#each results}}
+				<div id="card{{this.id}}" class="item">
+					<div class="img" id={{this.id}} data-stats="false"></div>
+					<div class="title"></div>
+				</div>
 			{{/each}}
 		</script>
 
-		<script id="results-template" type="text/x-handlebars-template">
-			<h1>{{this.date}}</h1>
+		<script id="imgs-template" type="text/x-handlebars-template">
+			<img
+				src="{{this.thumbnail}}"
+				onerror="this.src='https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png';"
+				alt="not found"
+			/>
 		</script>
 	</head>
 
 	<body>
 		<div class="header">
-			<h1 id="title">Wonder Weather</h1>
+			<h1 id="title">Your Picks</h1>
 		</div>
 
 		<div class="body">
-			<div class="text-input">
-				<input
-					id="weather-input"
-					class="filter"
-					list="scroll-weather"
-					placeholder="weather"
-				/>
-				<datalist id="scroll-weather"> </datalist>
-
-				<span class="math" id="plus">&#43;</span>
-				<input
-					id="location-input"
-					class="filter"
-					list="scroll-location"
-					placeholder="location"
-				/>
-				<datalist id="scroll-location"> </datalist>
-				<span class="math" id="equals">&#61;</span>
-			</div>
 			<div id="results"></div>
 		</div>
-		<div id="nav-options">
-			<a href="hotels.html" class="paging-button"> get hotels near by</a>
-			<a href="favorites.html" class="paging-button">
-				get hotels near by</a
-			>
-		</div>
+		<a href="index.html" class="return-button"> Return to Home Page</a>
 
 		<div class="footer">
 			<h2 class="logo">Cookies inc.</h2>
-			<!-- <i class="fa-solid fa-trademark"></i> -->
 		</div>
 
 		<script src="./src/Apis/ajaxCall.js"></script>

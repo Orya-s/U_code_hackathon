@@ -13,6 +13,16 @@ class MetaDataApi extends Api {
 		return await this.callApi()
 	}
 
+	async getWeatherOptions() {
+		this.resources = "options/weather"
+		return await this.callApi()
+	}
+
+	async getLocationOptions() {
+		this.resources = "options/location"
+		return await this.callApi()
+	}
+
 	//restful extention, not fully implemented
 	async postData(data = "") {
 		this.method = "POST"
