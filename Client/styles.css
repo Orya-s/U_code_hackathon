@@ -15,6 +15,10 @@ body {
   grid-area: h;
 }
 
+.body {
+  grid-area: b;
+}
+
 #results {
   grid-area: b;
   display: grid;
@@ -24,8 +28,8 @@ body {
 }
 
 
-#nav-options{
-    grid-area: n;
+#nav-options {
+  grid-area: n;
 }
 
 #title {
@@ -139,4 +143,26 @@ input:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-font-smoothing: antialiased;
+}
+
+
+#get-hotels {
+  position: absolute;
+  bottom: 90px;
+  font-size: 1.25em;
+}
+
+#my-picks {
+  position: absolute;
+  bottom: 90px;
+  right: 1em;
+  font-size: 1.25em;
+}
+
+
+.return-button {
+  position: absolute;
+  bottom: 90px;
+  right: 1em;
+  font-size: 1.25em;
 }
